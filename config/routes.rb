@@ -4,5 +4,6 @@ Rails.application.routes.draw do
     resources :customers do
         resources :projects
     end
+    resources :projects
     root 'welcome#index'
 end

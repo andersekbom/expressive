@@ -2,12 +2,14 @@
 
 <p>
     Project handled:<br>
-    <%= link_to @consultant.project.name, @consultant.project %>
+<!--    <link_to @consultant.project.name, @consultant.project %>-->
 </p>
 
 <p>
     Assign to:<br>
-    <%= render "projects/assignlinks" %>
+    <% @projects.each do |p| %>
+        <%= p.name %><br>
+    <% end %>
 </p>
 
 <p>

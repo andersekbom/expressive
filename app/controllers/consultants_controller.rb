@@ -6,7 +6,7 @@ class ConsultantsController < ApplicationController
 
     def show
         @consultant = Consultant.find(params[:id])
-        @customers = Customer.all
+        @projects = Project.all
     end
 
     def new

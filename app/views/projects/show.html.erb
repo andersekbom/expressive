@@ -1,0 +1,14 @@
+<h1>Project: <%= @project.name %> (<%= @project.customer.name %>)</h1>
+
+<p>
+    <strong>Description:</strong><br>
+    <%= @project.description %>
+</p>
+
+<p>
+    Assigned to @project.consultant.firstname.
+</p>
+
+<p>
+    <%= link_to 'Back to customer', customer_path(params[:customer_id]) %>
+</p>

@@ -4,8 +4,12 @@ class ProjectsController < ApplicationController
     end
 
     def index
-        @customer = Customer.find(params[:customer_id])
-        @projects = @customer.projects.all    
+        @projects = Project.all
+    end
+
+    def show
+        @project = Project.find(params[:id])
+        
     end
 
     def create
