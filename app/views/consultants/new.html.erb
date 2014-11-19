@@ -1,0 +1,16 @@
+<h1>New consultant</h1>
+
+<%= form_for :consultant, url: consultants_path do |f| %>
+
+    <p>
+        <%= f.label :firstname %>
+        <%= f.text_field :firstname %>
+    </p>
+    <p>
+        <%= f.label :lastname %>
+        <%= f.text_field :lastname %>
+    </p>
+    <p>
+        <%= f.submit %>
+    </p>
+<% end %>

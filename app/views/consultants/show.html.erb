@@ -1,0 +1,15 @@
+<h1><%= @consultant.firstname %> <%= @consultant.lastname %></h1>
+
+<p>
+    Project handled:<br>
+    <%= link_to @consultant.project.name, @consultant.project %>
+</p>
+
+<p>
+    Assign to:<br>
+    <%= render "projects/assignlinks" %>
+</p>
+
+<p>
+    <%= link_to 'Back', consultants_path %>
+</p>

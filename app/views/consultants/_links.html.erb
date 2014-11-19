@@ -1,0 +1,3 @@
+<% @consultants.each do |c| %>
+    <%= link_to c.firstname + ' ' + c.lastname, customer_path({id:@customer.id, con:c.id}), method: :patch %> |
+<% end %>
