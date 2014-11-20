@@ -1,15 +1,29 @@
 <h1>New project</h1>
 
-<%= form_for :project, url: customer_projects_path do |f| %>
+<%= form_for :project, url: customer_projects_path(params[:customer_id]) do |f| %>
 <p>
-    <%= f.label :name %>
+    <%= f.label :name %><br>
     <%= f.text_field :name %>
 </p>
 
 <p>
-    <%= f.label :description %>
+    <%= f.label :description %><br>
     <%= f.text_area :description %>
 </p>
+
+<p>
+    <%= f.label :Start_date %>
+    <%= f.date_select :Start_date %><br>
+    <%= f.label :End_date %>
+    <%= f.date_select :End_date %>
+
+</p>
+
+<p>
+    <%= f.label :Assign_to %><Br>
+    <%= f.collection_select :consultant_id, @consultants, :id, :full_name %>
+</p>
+
 <p>
     <%= f.submit %>
 </p>

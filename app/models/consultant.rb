@@ -1,3 +1,10 @@
 class Consultant < ActiveRecord::Base
-    has_one :project
+    has_many :projects
+
+    def full_name
+
+        "#{firstname} #{lastname}"
+
+    end
+
 end

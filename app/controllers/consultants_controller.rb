@@ -12,6 +12,13 @@ class ConsultantsController < ApplicationController
     def new
     end
 
+    def update
+        @consultant = Consultant.find(params[:id])
+        @consultant.update(project_id: params[:proj])
+        @consultant.save
+        redirect_to @consultant
+    end
+
     def create
         @consultant = Consultant.new(consultants_params)
         @consultant.save
