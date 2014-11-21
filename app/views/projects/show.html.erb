@@ -1,15 +1,20 @@
-<h1>Project: <%= @project.name %> (<%= @project.customer.name %>)</h1>
+<h1><%= @project.name %></h1>
 
 <p>
-    <strong>Description:</strong><br>
-    <%= @project.description %>
+    <strong>Customer:</strong><br>
+    <%= link_to @project.customer.name, customer_path(@project.customer.id) %>
+</p>
+
+
+<p>
+    <strong>Consultant:</strong><br>
+    <%= link_to @project.consultant.full_name, consultant_path(@project.consultant.id) %>
 </p>
 
 <p>
-    Assigned to <%= link_to @project.consultant.full_name, consultant_path(@project.consultant.id) %>.
+    <%= link_to 'Delete this project', customer_project_path({customer_id: @project.customer.id, id: @project.id}), method: :delete, data: {confirm: 'Are you sure?'} %>
 </p>
 
 <p>
-    <%= link_to 'Back to projects', projects_path %><br>
-    <%= link_to 'Back to ' + @project.customer.name, customer_path(@project.customer.id) %>
+    <%= link_to 'Back', customer_path(@project.customer.id) %>
 </p>

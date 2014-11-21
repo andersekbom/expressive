@@ -6,17 +6,9 @@ class ConsultantsController < ApplicationController
 
     def show
         @consultant = Consultant.find(params[:id])
-        @projects = Project.all
     end
 
     def new
-    end
-
-    def update
-        @consultant = Consultant.find(params[:id])
-        @consultant.update(project_id: params[:proj])
-        @consultant.save
-        redirect_to @consultant
     end
 
     def create

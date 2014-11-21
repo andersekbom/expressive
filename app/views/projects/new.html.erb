@@ -1,30 +1,37 @@
-<h1>New project</h1>
+<h1>New project for <%= @customer.name %></h1>
 
 <%= form_for :project, url: customer_projects_path(params[:customer_id]) do |f| %>
-<p>
-    <%= f.label :name %><br>
-    <%= f.text_field :name %>
-</p>
 
-<p>
-    <%= f.label :description %><br>
-    <%= f.text_area :description %>
-</p>
+    <% if @project.errors.any? %>
+      <div id="error_explanation">
+        <h2><%= pluralize(@project.errors.count, "error") %> prohibited this project from being saved:</h2>
+        <ul>
+        <% @project.errors.full_messages.each do |msg| %>
+          <li><%= msg %></li>
+        <% end %>
+        </ul>
+      </div>
+      <% end %>
 
-<p>
-    <%= f.label :Start_date %>
-    <%= f.date_select :Start_date %><br>
-    <%= f.label :End_date %>
-    <%= f.date_select :End_date %>
+    <p>
+        <%= f.label :name %><br>
+        <%= f.text_field :name %>
+    </p>
+    <p>
+        <%= f.label :description %><br>
+        <%= f.text_area :description%>
+    </p>
 
-</p>
+    <p>
+       <%= f.label :consultant_id %><br> 
+       <%= f.collection_select(:consultant_id, @consultants, :id, :full_name) %>
+    </p>
 
-<p>
-    <%= f.label :Assign_to %><Br>
-    <%= f.collection_select :consultant_id, @consultants, :id, :full_name %>
-</p>
+    <p>
+        <%= f.submit %>
+    </p>
 
-<p>
-    <%= f.submit %>
-</p>
 <% end %>
+
+<p>
+    <%= link_to 'Back', customer_path(params[:customer_id]) %>

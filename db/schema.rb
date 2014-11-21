@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20141120162211) do
+ActiveRecord::Schema.define(version: 20141120175609) do
 
   create_table "consultants", force: true do |t|
     t.string   "firstname"
@@ -30,12 +30,13 @@ ActiveRecord::Schema.define(version: 20141120162211) do
   create_table "projects", force: true do |t|
     t.string   "name"
     t.text     "description"
+    t.integer  "consultant_id"
     t.integer  "customer_id"
     t.datetime "created_at"
     t.datetime "updated_at"
-    t.integer  "consultant_id"
   end
 
+  add_index "projects", ["consultant_id"], name: "index_projects_on_consultant_id"
   add_index "projects", ["customer_id"], name: "index_projects_on_customer_id"
 
 end

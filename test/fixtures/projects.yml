@@ -3,9 +3,11 @@
 one:
   name: MyString
   description: MyText
+  consultant_id: 
   customer_id: 
 
 two:
   name: MyString
   description: MyText
+  consultant_id: 
   customer_id: 

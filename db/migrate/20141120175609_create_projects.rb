@@ -3,6 +3,7 @@ class CreateProjects < ActiveRecord::Migration
     create_table :projects do |t|
       t.string :name
       t.text :description
+      t.references :consultant, index: true
       t.references :customer, index: true
 
       t.timestamps

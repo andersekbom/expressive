@@ -1,7 +1,6 @@
 <h1>Projects</h1>
-
+<p>
 <% @projects.each do |p| %>
-    <%= link_to p.name, project_path(p.id) %> (<%= link_to p.customer.name, customer_path(p.customer.id) %>) <%= p.consultant.full_name %>
-
-    <%= link_to 'Del', project_path(p.id), method: :delete, data: {confirm: 'Are you sure?'} %><br>
+    <%= link_to p.name, customer_project_path({customer_id: p.customer.id, id: p.id}) %> 
+    (<%= link_to p.customer.name, customer_path(p.customer.id) %> | <%= link_to p.consultant.full_name, consultant_path(p.consultant.id) %>)<br>
 <% end %>

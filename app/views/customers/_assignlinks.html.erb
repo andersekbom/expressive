@@ -1,4 +1,0 @@
-<% @customers.each do |customer| %>
-    <%= link_to customer.name, customer_path({id: customer.id, con: @consultant.id}), 
-    method: :patch, data: {confirm: 'Reassign ' + customer.name + ' to ' + @consultant.firstname + '?'} %><br>
-<% end %>

@@ -1,21 +1,26 @@
 <h1>Customers</h1>
-<%= link_to 'New customer', new_customer_path %>
-<table>
-  <tr>
-    <th>Name</th>
-    <th>Actions</th>
+<p>
+    <%= link_to 'New customer', new_customer_path %>
+</p>
+<p>
+    <table>
+      <tr>
+        <th>Name</th>
+        <th>Actions</th>
 
-  </tr>
- 
-  <% @customers.each do |customer| %>
-    <tr>
-      <td><%= link_to customer.name, customer %></td>
-      <td><%= link_to 'Del', customer_path(customer), method: :delete, data: {confirm: 'Are you sure?'} %></td>
-    </tr>
-  <% end %>
-</table>
-<% if @customers.count == 0 %>
-    No customers!
-<% end %>
-
-<%= link_to 'Consultants', consultants_path %>
+      </tr>
+     
+      <% @customers.each do |customer| %>
+        <tr>
+          <td><%= link_to customer.name, customer %></td>
+          <td><%= link_to 'Del', customer_path(customer), method: :delete, data: {confirm: 'Are you sure?'} %></td>
+        </tr>
+      <% end %>
+    </table>
+    <% if @customers.count == 0 %>
+        No customers!
+    <% end %>
+</p>
+<p>
+    <%= link_to 'Consultants', consultants_path %>
+</p>

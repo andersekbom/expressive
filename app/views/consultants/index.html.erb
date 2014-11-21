@@ -2,22 +2,29 @@
 <p>
     <%= link_to 'New consultant', new_consultant_path %>
 </p>
-<table>
-    <tr>
-        <th>Name</th>
-        <th>Actions</th>
-    </tr>
-    <% @consultants.each do |consultant| %>
+
+<p>
+    <table>
         <tr>
-            <td>
-            <%= link_to consultant.firstname + " " + consultant.lastname, consultant %>
-            </td>
-            <td>
-            <%= link_to 'Del', consultant_path(consultant), method: :delete, data: {confirm: 'Are you sure?'} %>
-            </td>
+            <th>Name</th>
+            <th>Actions</th>
         </tr>
+        <% @consultants.each do |consultant| %>
+            <tr>
+                <td>
+                <%= link_to consultant.firstname + " " + consultant.lastname, consultant %>
+                </td>
+                <td>
+                <%= link_to 'Del', consultant_path(consultant), method: :delete, data: {confirm: 'Are you sure?'} %>
+                </td>
+            </tr>
+        <% end %>
+    </table>
+    <% if @consultants.count == 0 %>
+        No consultants!
     <% end %>
-</table>
+</p>
+
 <p>
     <%= link_to 'Customers', customers_path %>
 </p>

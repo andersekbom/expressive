@@ -1,14 +1,9 @@
-<h1><%= @consultant.firstname %> <%= @consultant.lastname %></h1>
+<h1><%= @consultant.full_name %></h1>
 
 <p>
-    Project handled:<br>
-    <%= link_to @consultant.project.name, project_path(@consultant.project.id) %> (<%= link_to @consultant.project.customer.name, customer_path(@consultant.project.customer.id) %>)
-</p>
-
-<p>
-    Assign to:<br>
-    <% @projects.each do |p| %>
-        <%= link_to p.name, consultant_path({id:@consultant.id, proj:p.id}), method: :patch %><br>
+    <strong>Projects:</strong><br>
+    <% @consultant.projects.each do |p| %>
+        <%= link_to p.name, customer_project_path({customer_id: p.customer.id, id: p.id}) %><br>
     <% end %>
 </p>
 

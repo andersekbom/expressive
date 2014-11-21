@@ -1,9 +1,10 @@
 class Project < ActiveRecord::Base
 
-    belongs_to :customer
     belongs_to :consultant
+    belongs_to :customer
 
-    validates :project_id, presence: true
+    validates :name, presence: true
+    validates :customer_id, presence: true
     validates :consultant_id, presence: true
 
 end
