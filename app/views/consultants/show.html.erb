@@ -1,11 +1,14 @@
 <h1><%= @consultant.full_name %></h1>
-
+<p>
+    <%= link_to 'Edit', edit_consultant_path %>
+</p>
 <p>
     <strong>Projects:</strong><br>
     <% @consultant.projects.each do |p| %>
         <%= link_to p.name, customer_project_path({customer_id: p.customer.id, id: p.id}) %><br>
     <% end %>
 </p>
+
 
 <p>
     <%= link_to 'Back', consultants_path %>

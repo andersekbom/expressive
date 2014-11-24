@@ -1,0 +1,32 @@
+<h1>Edit consultant</h1>
+
+<%= form_for :consultant, url: consultant_path(@consultant), method: :patch do |f| %>
+
+    <% if @consultant.errors.any? %>
+      <div id="error_explanation">
+        <h2><%= pluralize(@consultant.errors.count, "error") %> prohibited
+          this consultant from being saved:</h2>
+        <ul>
+        <% @consultant.errors.full_messages.each do |msg| %>
+          <li><%= msg %></li>
+        <% end %>
+        </ul>
+      </div>
+      <% end %>
+
+    <p>
+        <%= f.label :firstname %>
+        <%= f.text_field :firstname %>
+    </p>
+    <p>
+        <%= f.label :lastname %>
+        <%= f.text_field :lastname %>
+    </p>
+    <p>
+        <%= f.submit %>
+    </p>
+<% end %>
+
+<p>
+    <%= link_to 'Back', consultants_path %>
+</p>

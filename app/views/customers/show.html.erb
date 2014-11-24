@@ -1,6 +1,10 @@
 <h1><%= @customer.name %></h1>
 
 <p>
+    <%= link_to 'Edit', edit_customer_path %>
+</p>
+
+<p>
     <strong>Description:</strong><br>
     <%= @customer.description %>
 </p>
@@ -8,16 +12,11 @@
 <p>
     <strong>Projects:</strong><br>
     <% @customer.projects.all.each do |p| %>
-        <%= link_to p.name, customer_project_path({customer_id: @customer.id, id: p.id}) %><br>
+        <%= link_to p.name, customer_project_path({customer_id: @customer.id, id: p.id}) %> (<%= link_to p.consultant.full_name, consultant_path(p.consultant.id) %>)<br>
     <% end %>
 
 </p>
 
-
 <p>
-    <%= link_to 'Create new project', new_customer_project_path(@customer.id) %>
-
-<p>
-    <%= link_to 'Back to customers', customers_path %>
+    <%= link_to 'Create new project for ' + @customer.name, new_customer_project_path(@customer.id) %>
 </p>
-

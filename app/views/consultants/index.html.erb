@@ -1,7 +1,4 @@
 <h1>Consultants</h1>
-<p>
-    <%= link_to 'New consultant', new_consultant_path %>
-</p>
 
 <p>
     <table>
@@ -12,10 +9,11 @@
         <% @consultants.each do |consultant| %>
             <tr>
                 <td>
-                <%= link_to consultant.firstname + " " + consultant.lastname, consultant %>
+                    <%= link_to consultant.firstname + " " + consultant.lastname, consultant %>
                 </td>
                 <td>
-                <%= link_to 'Del', consultant_path(consultant), method: :delete, data: {confirm: 'Are you sure?'} %>
+                    <%= link_to 'Del', consultant_path(consultant), method: :delete, data: {confirm: 'Are you sure?'} %> | 
+                    <%= link_to 'Edit', edit_consultant_path(consultant) %>
                 </td>
             </tr>
         <% end %>
@@ -26,5 +24,6 @@
 </p>
 
 <p>
-    <%= link_to 'Customers', customers_path %>
+    <%= link_to 'New consultant', new_consultant_path %>
 </p>
+

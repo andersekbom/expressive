@@ -7,8 +7,10 @@
   <%= csrf_meta_tags %>
 </head>
 <body>
-<p><%= link_to 'Customers', customers_path %> | <%= link_to 'Consultants', consultants_path %> | <%= link_to 'Projects', projects_path %></p>
+<%= link_to 'Customers', customers_path %> | <%= link_to 'Consultants', consultants_path %> | <%= link_to 'Projects', projects_path %>
+<hr>
 <%= yield %>
+<hr>
 </body>
 </html>
 

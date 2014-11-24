@@ -1,6 +1,22 @@
 <h1>Projects</h1>
+
 <p>
-<% @projects.each do |p| %>
-    <%= link_to p.name, customer_project_path({customer_id: p.customer.id, id: p.id}) %> 
-    (<%= link_to p.customer.name, customer_path(p.customer.id) %> | <%= link_to p.consultant.full_name, consultant_path(p.consultant.id) %>)<br>
-<% end %>
+<table>
+    <tr>
+        <th>Name</th>
+        <th>Customer</th>
+        <th>Consultant</th>
+        <th>Starts</th>
+        <th>Ends</th>
+    </tr>
+    <% @projects.each do |p| %>
+    <tr>
+        <td><%= link_to p.name, customer_project_path({customer_id: p.customer.id, id: p.id}) %></td>
+        <td><%= link_to p.customer.name, customer_path(p.customer.id) %></td>
+        <td><%= link_to p.consultant.full_name, consultant_path(p.consultant.id) %></td>
+        <td><%= p.startdate %></td>
+        <td><%= p.enddate %></td>
+    </tr>
+    <% end %>
+</table>
+</p>

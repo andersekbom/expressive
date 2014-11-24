@@ -11,10 +11,17 @@ class CustomersController < ApplicationController
         @customer = Customer.find(params[:id])
     end
 
+    def edit
+        @customer = Customer.find(params[:id])
+    end
+
     def update
         @customer = Customer.find(params[:id])
-        @customer.update(consultant_id: params[:con])
-        redirect_to consultant_path({id: params[:con]})
+        if @customer.update(customer_params)
+            redirect_to @customer
+        else
+            render :edit
+        end
     end
 
     def destroy

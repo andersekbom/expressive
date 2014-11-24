@@ -1,5 +1,7 @@
 class ProjectsController < ApplicationController
 
+    respond_to :html, :xml, :json
+
     def index
         @projects = Project.order(:customer_id).all
     end
@@ -21,22 +23,21 @@ class ProjectsController < ApplicationController
     end
 
     def create
-
         @project = Project.new(project_params)
         @project.customer_id = params[:customer_id]
-
         if @project.save
             redirect_to customer_path(params[:customer_id])
         else
             @consultants = Consultant.all
-            render 'new'
+            @customer = Customer.find(params[:customer_id])
+            render :new
         end
 
     end
 
     private
         def project_params
-            params.require(:project).permit(:name, :description, :consultant_id)
+            params.require(:project).permit(:name, :description, :consultant_id, :startdate, :enddate)
         end
 
 end
